@@ -20,35 +20,39 @@ function LandingPage() {
       <div className="grid">
         <div className="grid-col grid-col_8">
           <p>
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur
-            id felis metus. Vestibulum et pulvinar tortor. Morbi pharetra lacus
-            ut ex molestie blandit. Etiam et turpis sit amet risus mollis
-            interdum. Suspendisse et justo vitae metus bibendum fringilla sed
-            sed justo. Aliquam sollicitudin dapibus lectus, vitae consequat odio
-            elementum eget. Praesent efficitur eros vitae nunc interdum, eu
-            interdum justo facilisis. Sed pulvinar nulla ac dignissim efficitur.
-            Quisque eget eros metus. Vestibulum bibendum fringilla nibh a
-            luctus. Duis a sapien metus.
+          Welcome to EventPlanner, your non-obtrusive event planning application! 
+          Whether you're organizing a small gathering or a large event, EventPlanner 
+          makes it easy and efficient using our seamless text API.
           </p>
 
           <p>
-            Praesent consectetur orci dui, id elementum eros facilisis id. Sed
-            id dolor in augue porttitor faucibus eget sit amet ante. Nunc
-            consectetur placerat pharetra. Aenean gravida ex ut erat commodo, ut
-            finibus metus facilisis. Nullam eget lectus non urna rhoncus
-            accumsan quis id massa. Curabitur sit amet dolor nisl. Proin
-            euismod, augue at condimentum rhoncus, massa lorem semper lacus, sed
-            lobortis augue mi vel felis. Duis ultrices sapien at est convallis
-            congue.
+          EventPlanner is a solo project developed during my time at Prime Digital Academy. 
+          This journey has been incredibly enriching, allowing me to learn and grow as a 
+          developer. From initial concept to final implementation, I've poured my passion 
+          and dedication into creating an application that truly simplifies event planning.
           </p>
 
+          <h3>Features</h3>
           <p>
-            Fusce porta diam ac tortor elementum, ut imperdiet metus volutpat.
-            Suspendisse posuere dapibus maximus. Aliquam vitae felis libero. In
-            vehicula sapien at semper ultrices. Vivamus sed feugiat libero. Sed
-            sagittis neque id diam euismod, ut egestas felis ultricies. Nullam
-            non fermentum mauris. Sed in enim ac turpis faucibus pretium in sit
-            amet nisi.
+            <li>
+              <b>Non-Obtrusive: </b> 
+              Start planning your events without the hassle of email sign-ups. 
+              Simply create an account with a username and password, and you're ready to go!
+            </li>
+            <li>
+              <b>Text API: </b> 
+              Use our intuitive text-based interface to create, update, and manage your 
+              events effortlessly.
+            </li>
+            <li>
+            <b>Solo Project: </b>
+            Developed as a comprehensive solo project, EventPlanner showcases 
+            my proficiency in various technologies. I utilized JavaScript for 
+            dynamic functionality, React for building the user interface, Redux 
+            for state management, and SQL for robust database interactions. 
+            This project demonstrates my ability to integrate these technologies 
+            into a cohesive and efficient application.
+            </li>
           </p>
         </div>
         <div className="grid-col grid-col_4">
