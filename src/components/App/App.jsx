@@ -19,6 +19,8 @@ import InfoPage from '../InfoPage/InfoPage';
 import LandingPage from '../LandingPage/LandingPage';
 import LoginPage from '../LoginPage/LoginPage';
 import RegisterPage from '../RegisterPage/RegisterPage';
+import EventList from '../EventList/EventList';
+import NewEventForm from '../NewEventForm/NewEventForm'
 
 import './App.css';
 
@@ -60,6 +62,7 @@ function App() {
             <UserPage />
           </ProtectedRoute>
 
+
           <ProtectedRoute
             // logged in shows InfoPage else shows LoginPage
             exact
@@ -67,6 +70,7 @@ function App() {
           >
             <InfoPage />
           </ProtectedRoute>
+
 
           <Route
             exact
@@ -82,6 +86,7 @@ function App() {
             }
           </Route>
 
+
           <Route
             exact
             path="/registration"
@@ -96,6 +101,7 @@ function App() {
             }
           </Route>
 
+
           <Route
             exact
             path="/home"
@@ -109,6 +115,24 @@ function App() {
               <LandingPage />
             }
           </Route>
+
+          <ProtectedRoute
+            // logged in shows InfoPage else shows LoginPage
+            exact
+            path="/event_list"
+          >
+            <EventList />
+          </ProtectedRoute>
+
+
+          <ProtectedRoute
+            // logged in shows InfoPage else shows LoginPage
+            exact
+            path="/new_event_form"
+          >
+            <NewEventForm />
+          </ProtectedRoute>
+
 
           {/* If none of the other routes matched, we will show a 404. */}
           <Route>
