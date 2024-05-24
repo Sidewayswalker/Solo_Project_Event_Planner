@@ -6,6 +6,7 @@ const router = express.Router();
  * GET route template
  */
 router.get('/', (req, res) => {
+    console.log('I AM HERE!!!',req.user);
     const query = `
     SELECT 
     "user".id AS user_id,
@@ -25,6 +26,8 @@ INNER JOIN
     event ON "user".id = event.user_id
 INNER JOIN 
     guest ON event.id = guest.event_id
+WHERE 
+    event.user_id = $1
 GROUP BY 
     "user".id, 
     "user".username, 
@@ -34,7 +37,9 @@ GROUP BY
     event.location, 
     event.start_time;
     `;
-    pool.query(query)
+    const userIdValues = req.user.id;
+    const values = [userIdValues]
+    pool.query(query, values)
     .then(result => {
         res.send(result.rows);
     })
