@@ -7,8 +7,8 @@
 //  */
 // router.get('/', (req, res) => {
 //     const query = `
-//         SELECT * FROM "event"
-//         ORDER BY "date";
+//         SELECT * FROM "guest"
+//         ORDER BY "id";
 //     `;
 //     pool.query(query)
 //     .then(result => {
@@ -24,7 +24,7 @@
 //  * POST route template
 //  */
 // router.post('/', (req, res) => {
-//   // POST route code here
-// });
+//     // POST route code here
+//   });
 
 // module.exports = router;

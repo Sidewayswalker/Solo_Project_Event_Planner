@@ -1,7 +1,9 @@
 import { combineReducers } from 'redux';
 import errors from './errors.reducer';
 import user from './user.reducer';
-import event from './event.reducer';
+// import event from './event.reducer';
+// import guest from './guest.reducer';
+import eventGuest from './event_guest.reducer';
 
 // rootReducer is the primary reducer for our entire project
 // It bundles up all of the other reducers so our project can use them.
@@ -12,7 +14,9 @@ import event from './event.reducer';
 const rootReducer = combineReducers({
   errors, // contains registrationMessage and loginMessage
   user, // will have an id and username if someone is logged in
-  event,
+  // event,
+  // guest,
+  eventGuest,
 });
 
 export default rootReducer;

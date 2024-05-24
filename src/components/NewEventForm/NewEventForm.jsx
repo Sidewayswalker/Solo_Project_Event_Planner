@@ -22,6 +22,9 @@ function NewEventForm() {
                 ></input>
             </div>
             <div>
+                <button>Submit Event</button>
+            </div>
+            <div>
                     <input
                 placeholder="guest name"
                 ></input>
@@ -31,7 +34,7 @@ function NewEventForm() {
                 <button>+</button>
             </div>
             <div>
-                <button>submit</button>
+                <button>Submit Guests</button>
             </div>
         </div>
     )

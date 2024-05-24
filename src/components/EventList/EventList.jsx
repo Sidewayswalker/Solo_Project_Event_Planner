@@ -2,29 +2,24 @@ import React, { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import './EventList.css';
 
-
-
 function EventList() {
-
     const dispatch = useDispatch();
-    const events = useSelector(store => store.event);
+    const Events_Guests = useSelector(store => store.eventGuest);
 
     useEffect(() => {
-        dispatch({ type: 'FETCH_EVENT' });
-    }, []);
+        dispatch({ type: 'FETCH_EVENTS_GUESTS' });
+    }, [dispatch]);
 
-
-
-    return(
+    return (
         <div className="container">
             <p>Event List Page</p>
-            {/* {JSON.stringify(events)} */}
+            {Events_Guests.map(combinedData => {
+                // Split the guest names into an array if it's a string
+                const guestNames = combinedData.guest_names ? combinedData.guest_names.split(', ') : [];
+                const responses = combinedData.responses ? combinedData.responses.split(', ') : [];
 
-
-            {events.map(event => {
-                console.log('CLIENT_GET_EVENT_STEP 3', event)
                 return (
-                    <div key={event.id} className='Event_List_Table'>
+                    <div key={combinedData.event_id} className='Event_List_Table'>
                         <table>
                             <thead>
                                 <tr>
@@ -32,9 +27,8 @@ function EventList() {
                                     <th>Date</th>
                                     <th>Location</th>
                                     <th>Start Time</th>
-                                    <th>Guest ID</th>
-                                    <th>Guest</th>
-                                    <th>Response</th>
+                                    <th>Guests</th>
+                                    <th>Responses</th>
                                     <th>UUID</th>
                                     <th>Add Guest</th>
                                     <th>Remove Event</th>
@@ -42,29 +36,39 @@ function EventList() {
                             </thead>
                             <tbody>
                                 <tr>
-                                    <td>{event.event_name}</td>
-                                    <td>{event.date}</td>
-                                    <td>{event.date}</td>
-                                    <td>{event.start_time}</td>
-                                    <td>#</td>
-                                    <td>Mark<br/>Jared<br/>Danny<br/>Dalton</td>
-                                    <td>Yes<br/>Yes<br/>No<br/>Yes</td>
-                                    <td>long string</td>
+                                    <td>{combinedData.event_name}</td>
+                                    <td>{combinedData.date}</td>
+                                    <td>{combinedData.location}</td>
+                                    <td>{combinedData.start_time}</td>
+                                    <td>
+                                        <ul>
+                                            {guestNames.map((guest, index) => (
+                                                <li key={index}>{guest}</li>
+                                            ))}
+                                        </ul>
+                                    </td>
+                                    <td>
+                                        <ul>
+                                            {responses.map((response, index) => (
+                                                <li key={index}>{response === 'true' ? 'Yes' : 'No'}</li>
+                                            ))}
+                                        </ul>
+                                    </td>
+                                    <td>{combinedData.invite_UUID}</td>
                                     <td>
                                         <button>Add Guest</button>
                                     </td>
                                     <td>
-                                        <button>❌</button>
+                                        <button>Delete Event<br />❌</button>
                                     </td>
                                 </tr>
                             </tbody>
                         </table>
                     </div>
-                )
+                );
             })}
-
         </div>
-    )
+    );
 }
 
 export default EventList;
