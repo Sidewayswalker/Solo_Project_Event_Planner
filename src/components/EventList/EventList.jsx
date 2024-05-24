@@ -41,14 +41,14 @@ function EventList() {
                                     <td>{combinedData.location}</td>
                                     <td>{combinedData.start_time}</td>
                                     <td>
-                                        <ul>
+                                        <ol>
                                             {guestNames.map((guest, index) => (
                                                 <li key={index}>{guest}</li>
                                             ))}
-                                        </ul>
+                                        </ol>
                                     </td>
                                     <td>
-                                        <ul>
+                                        <ul id='invisible_bulletpoint_list'>
                                             {responses.map((response, index) => (
                                                 <li key={index}>{response === 'true' ? 'Yes' : 'No'}</li>
                                             ))}

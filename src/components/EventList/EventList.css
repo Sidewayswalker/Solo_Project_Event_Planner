@@ -4,3 +4,7 @@
     margin: 10px;
     text-align: left; 
 }
+
+#invisible_bulletpoint_list {
+        list-style-type: none; 
+}

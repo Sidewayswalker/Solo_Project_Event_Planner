@@ -9,7 +9,10 @@ function AboutPage() {
   return (
     <div className="container">
       <div>
-        <p>This about page is for anyone to read!</p>
+       <h1>Steven Karl</h1>
+       <h1>My Picture</h1>
+       <h1>Description</h1>
+       <h1>Goals</h1>
       </div>
     </div>
   );
