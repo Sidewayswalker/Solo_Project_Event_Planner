@@ -30,11 +30,15 @@ function* addEvent(action) {
         date: action.payload.date,
         location: action.payload.location,
         start_time: action.payload.start_time,
-        guest_name: action.payload.guest_name,
-        phone_number: action.payload.phone_number
+        guests: [
+          {
+            guest_name: action.payload.guest_name,
+            phone_number: action.payload.phone_number
+          }
+        ]
       },
     });
-    yield put({ type: "SET_EVENTS_GUESTS" });
+    yield put({ type: "FETCH_EVENTS_GUESTS" });
   } catch (err) {
     console.log(err);
   }

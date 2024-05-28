@@ -27,6 +27,7 @@ function NewEventForm() {
           type: 'ADD_EVENT', 
           payload: newEventPayload
         })
+            //HISTORY.push add it in for event list.
     };
 
     return (

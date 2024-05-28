@@ -1,6 +1,9 @@
 const express = require('express');
 const pool = require('../modules/pool');
 const router = express.Router();
+const uuid = require('react-uuid');
+
+
 
 /**
  * GET route template
@@ -56,7 +59,7 @@ router.post('/', (req, res) => {
     console.log('Incoming data:', req.body);
     const { event_name, date, location, start_time, guests } = req.body; // Assuming req.body has these fields
     const userId = req.user.id; // Assuming req.user contains the authenticated user's data
-
+    console.log('GUESTS MAP',guests);
     // Query to insert a new event
     const insertEventQuery = `
         INSERT INTO event (user_id, event_name, date, location, start_time)
@@ -66,23 +69,24 @@ router.post('/', (req, res) => {
     const eventValues = [userId, event_name, date, location, start_time];
 
     pool.query(insertEventQuery, eventValues)
-        .then(eventResult => {
+        .then(async eventResult => {
             const createdEventId = eventResult.rows[0].id;
             console.log('New Event Id:', createdEventId);
 
             // Prepare values for inserting guests
             const insertGuestQuery = `
-                INSERT INTO guest (event_id, guest_name, phone_number, response, invite_UUID)
-                VALUES ($1, $2, $3, $4, $5);
+                INSERT INTO guest (event_id, guest_name, phone_number, "invite_UUID")
+                VALUES ($1, $2, $3, $4);
             `;
 
             // Use Promise.all to insert all guests associated with the event
             const guestPromises = guests.map(guest => {
-                const guestValues = [createdEventId, guest.guest_name, guest.phone_number, guest.response, guest.invite_UUID];
+                const guestUUID = uuid();
+                const guestValues = [createdEventId, guest.guest_name, guest.phone_number, guestUUID];
                 return pool.query(insertGuestQuery, guestValues);
             });
 
-            return Promise.all(guestPromises);
+            return await Promise.all(guestPromises);
         })
         .then(() => {
             res.sendStatus(201);
