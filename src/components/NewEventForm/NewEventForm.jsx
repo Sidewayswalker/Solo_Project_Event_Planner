@@ -30,6 +30,14 @@ function NewEventForm() {
             //HISTORY.push add it in for event list.
     };
 
+
+    function addAnotherGuest(){
+        console.log('ANOTHER ONE');
+    }
+     
+
+
+
     return (
         <div>
             <form onSubmit={handleSubmit}>
@@ -87,9 +95,9 @@ function NewEventForm() {
                         value={phoneInput}
                         id="phoneNumber"
                         name="phoneNumber"
-                        placeholder="555-123-4567"
+                        placeholder="651-123-4567"
                     />
-                    <button type="button">+</button>
+                    <button onClick={addAnotherGuest} type="button">+</button>
                 </div>
                 <div>
                     <button type="submit">Submit Guests</button>
