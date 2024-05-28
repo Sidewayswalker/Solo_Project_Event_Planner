@@ -53,7 +53,44 @@ GROUP BY
  * POST route template
  */
 router.post('/', (req, res) => {
-  // POST route code here
+    console.log('Incoming data:', req.body);
+    const { event_name, date, location, start_time, guests } = req.body; // Assuming req.body has these fields
+    const userId = req.user.id; // Assuming req.user contains the authenticated user's data
+
+    // Query to insert a new event
+    const insertEventQuery = `
+        INSERT INTO event (user_id, event_name, date, location, start_time)
+        VALUES ($1, $2, $3, $4, $5)
+        RETURNING id;
+    `;
+    const eventValues = [userId, event_name, date, location, start_time];
+
+    pool.query(insertEventQuery, eventValues)
+        .then(eventResult => {
+            const createdEventId = eventResult.rows[0].id;
+            console.log('New Event Id:', createdEventId);
+
+            // Prepare values for inserting guests
+            const insertGuestQuery = `
+                INSERT INTO guest (event_id, guest_name, phone_number, response, invite_UUID)
+                VALUES ($1, $2, $3, $4, $5);
+            `;
+
+            // Use Promise.all to insert all guests associated with the event
+            const guestPromises = guests.map(guest => {
+                const guestValues = [createdEventId, guest.guest_name, guest.phone_number, guest.response, guest.invite_UUID];
+                return pool.query(insertGuestQuery, guestValues);
+            });
+
+            return Promise.all(guestPromises);
+        })
+        .then(() => {
+            res.sendStatus(201);
+        })
+        .catch(err => {
+            console.log('ERROR: Insert event and guests', err);
+            res.sendStatus(500);
+        });
 });
 
 module.exports = router;
