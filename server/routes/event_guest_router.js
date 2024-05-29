@@ -59,7 +59,8 @@ router.post('/', (req, res) => {
     console.log('Incoming data:', req.body);
     const { event_name, date, location, start_time, guests } = req.body; // Assuming req.body has these fields
     const userId = req.user.id; // Assuming req.user contains the authenticated user's data
-    console.log('GUESTS MAP',guests);
+    console.log('THE REQ.BODY',req.body)
+    console.log('GUESTS MAPPPP',guests);
     // Query to insert a new event
     const insertEventQuery = `
         INSERT INTO event (user_id, event_name, date, location, start_time)
@@ -82,7 +83,8 @@ router.post('/', (req, res) => {
             // Use Promise.all to insert all guests associated with the event
             const guestPromises = guests.map(guest => {
                 const guestUUID = uuid();
-                const guestValues = [createdEventId, guest.guest_name, guest.phone_number, guestUUID];
+                const guestValues = [createdEventId, guest.guestName, guest.phoneNumber, guestUUID];
+                console.log('111111111111111',guest)
                 return pool.query(insertGuestQuery, guestValues);
             });
 
