@@ -10,6 +10,17 @@ function EventList() {
         dispatch({ type: 'FETCH_EVENTS_GUESTS' });
     }, [dispatch]);
 
+
+    //! DELETE FUNCTION
+    const deleteEvent = (deleteId) => {
+        // console.log('DEBUG: TO BE DELETED!!!!!!!',deleteId)
+        dispatch({ type: 'DELETE_EVENT', payload: deleteId });
+        dispatch({ type: 'FETCH_EVENTS_GUESTS' });
+    };
+    //! DELETE FUNCTION
+    
+
+
     return (
         <div className="container">
             <p>Event List Page</p>
@@ -26,7 +37,7 @@ function EventList() {
                                     <th>Event</th>
                                     <th>Date</th>
                                     <th>Location</th>
-                                    <th>Start Time</th>
+                                    <th>Start Time</th> 
                                     <th>Guests</th>
                                     <th>Responses</th>
                                     <th>UUID</th>
@@ -59,7 +70,7 @@ function EventList() {
                                         <button>Add Guest</button>
                                     </td>
                                     <td>
-                                        <button>Delete Event<br />❌</button>
+                                    <button onClick={() => deleteEvent(combinedData.event_id)}>Delete Event<br />❌</button>
                                     </td>
                                 </tr>
                             </tbody>

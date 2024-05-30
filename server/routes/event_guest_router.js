@@ -9,7 +9,7 @@ const uuid = require('react-uuid');
  * GET route template
  */
 router.get('/', (req, res) => {
-    console.log('I AM HERE!!!',req.user);
+    // console.log('I AM HERE!!!',req.user);
     const query = `
     SELECT 
     "user".id AS user_id,
@@ -56,11 +56,11 @@ GROUP BY
  * POST route template
  */
 router.post('/', (req, res) => {
-    console.log('Incoming data:', req.body);
+    // console.log('Incoming data:', req.body);
     const { event_name, date, location, start_time, guests } = req.body; // Assuming req.body has these fields
     const userId = req.user.id; // Assuming req.user contains the authenticated user's data
-    console.log('THE REQ.BODY',req.body)
-    console.log('GUESTS MAPPPP',guests);
+    // console.log('THE REQ.BODY',req.body)
+    // console.log('GUESTS MAPPPP',guests);
     // Query to insert a new event
     const insertEventQuery = `
         INSERT INTO event (user_id, event_name, date, location, start_time)
@@ -84,7 +84,7 @@ router.post('/', (req, res) => {
             const guestPromises = guests.map(guest => {
                 const guestUUID = uuid();
                 const guestValues = [createdEventId, guest.guestName, guest.phoneNumber, guestUUID];
-                console.log('111111111111111',guest)
+                // console.log('guest data',guest)
                 return pool.query(insertGuestQuery, guestValues);
             });
 
@@ -98,5 +98,18 @@ router.post('/', (req, res) => {
             res.sendStatus(500);
         });
 });
+
+router.delete('/:id', (req, res) => {
+    // console.log('req.params.id', req.params.id)
+    const queryText = `
+      DELETE FROM "event" 
+        WHERE id=$1
+    `;
+    pool.query(queryText, [req.params.id])
+      .then(() => { res.sendStatus(200); })
+      .catch((err) => {
+        console.log('Error in DELETE /api/event_guest/:id', err);
+        res.sendStatus(500);
+      });
 
 module.exports = router;

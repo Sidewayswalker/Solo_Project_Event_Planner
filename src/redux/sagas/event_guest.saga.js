@@ -2,25 +2,21 @@ import axios from "axios";
 import { put, takeLatest, takeEvery } from "redux-saga/effects";
 
 function* fetchEventsGuests() {
-  console.log("In fetch Events & Guests!");
-
   try {
     let response = yield axios({
       method: "GET",
       url: "/api/event_guest",
     });
-    console.log("CLIENT_GET_EVENTGUEST_STEP 1", response.data);
     yield put({
       type: "SET_EVENTS_GUESTS",
       payload: response.data,
     });
   } catch (error) {
-    console.log("error with GET EVENTS & GUESTS get request");
+    console.log("Error with GET EVENTS & GUESTS get request:", error);
   }
 }
 
 function* addEvent(action) {
-  console.log("In CREATE Events & Guests!", action.payload);
   try {
     yield axios({
       method: "POST",
@@ -35,13 +31,28 @@ function* addEvent(action) {
     });
     yield put({ type: "FETCH_EVENTS_GUESTS" });
   } catch (err) {
-    console.log(err);
+    console.log("Error in adding event:", err);
+  }
+}
+
+function* deleteEvent(action) {
+  // console.log('DEBUG: ACTION',action)
+  try {
+    yield axios.delete(`/api/event_guest/${action.payload}`);
+    yield put({
+      type: 'DELETE_ITEM',
+      payload: action.payload
+    });
+  }
+  catch (err) {
+    console.log('Error in Delete:', err)
   }
 }
 
 function* EventGuestSaga() {
   yield takeLatest("FETCH_EVENTS_GUESTS", fetchEventsGuests);
   yield takeEvery("ADD_EVENT", addEvent);
+  yield takeLatest('DELETE_EVENT', deleteEvent);
 }
 
 export default EventGuestSaga;
