@@ -99,6 +99,7 @@ router.post('/', (req, res) => {
         });
 });
 
+
 router.delete('/:id', (req, res) => {
     // console.log('req.params.id', req.params.id)
     const queryText = `
@@ -111,5 +112,6 @@ router.delete('/:id', (req, res) => {
         console.log('Error in DELETE /api/event_guest/:id', err);
         res.sendStatus(500);
       });
+});
 
 module.exports = router;
