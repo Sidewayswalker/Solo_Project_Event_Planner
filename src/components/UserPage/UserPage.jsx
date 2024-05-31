@@ -2,13 +2,13 @@ import React from 'react';
 // import LogOutButton from '../LogOutButton/LogOutButton';
 import {useSelector} from 'react-redux';
 import { useHistory } from 'react-router-dom/cjs/react-router-dom.min';
+import './UserPage.css';
 
 
 function UserPage() {
   // this component doesn't do much to start, just renders some user reducer info to the DOM
   const user = useSelector((store) => store.user);
   const history = useHistory();
-
 
 
   const handleNewEventClick = () => {
@@ -20,15 +20,14 @@ function UserPage() {
   }
 
 
-
   return (
-    <div className="container">
+    <div className="containerHome">
       <h2>Welcome, {user.username}!</h2>
       {/* <p>Your ID is: {user.id}</p> */}
       {/* <LogOutButton className="btn" /> */}
-      <button onClick={handleNewEventClick} >Create New Event</button>
+      <button onClick={handleNewEventClick} id='NewEventButton'>Create New Event</button>
       <br/>
-      <button onClick={handleEventListClick} >Event List</button>
+      <button onClick={handleEventListClick} id='EventListButton'>Event List</button>
     </div>
   );
 }

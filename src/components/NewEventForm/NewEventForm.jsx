@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import { useDispatch } from "react-redux";
 import { useHistory } from 'react-router-dom';
+import './NewEventForm.css';
 
 function NewEventForm() {
   const [eventInput, setEventInput] = useState('');
@@ -50,7 +51,7 @@ function NewEventForm() {
 
 
   return (
-    <div>
+    <div id="NewEventFormBody">
       <form onSubmit={handleSubmit}>
         <div>
           <h2>New Event Form</h2>
@@ -69,7 +70,7 @@ function NewEventForm() {
             value={dateInput}
             id="date"
             name="date"
-            placeholder="2024-06-15"
+            placeholder="YYYY-MM-DD"
           />
           <br />
           <label htmlFor="location">Location:</label>
@@ -100,7 +101,6 @@ function NewEventForm() {
               name="guestName"
               placeholder="John Doe"
             />
-            <br />
             <label htmlFor={`phoneNumber${index}`}>Phone Number:</label>
             <input
               onChange={(event) => handleGuestChange(index, event)}
@@ -111,9 +111,9 @@ function NewEventForm() {
             />
           </div>
         ))}
-        <button type="button" onClick={addAnotherGuest}>+</button>
+        <button type="button" onClick={addAnotherGuest} id="addGuestButton">+</button>
         <div>
-          <button type="submit">Submit Guests</button>
+          <button type="submit" id="SubmitNewEventWithGuests">Submit Guests</button>
         </div>
       </form>
     </div>

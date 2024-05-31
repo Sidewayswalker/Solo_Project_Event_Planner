@@ -8,3 +8,6 @@
 #invisible_bulletpoint_list {
         list-style-type: none; 
 }
+#EventListTitle {
+    text-align: center;
+}

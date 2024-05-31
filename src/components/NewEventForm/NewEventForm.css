@@ -1,0 +1,12 @@
+#NewEventFormBody {
+    text-align: center;
+}
+#addGuestButton {
+    font-size: 20px;
+    padding: 5px 15px;
+    margin: 0px 10px 20px 10px;
+}
+#SubmitNewEventWithGuests{
+    font-size: 20px;
+    padding: 8px 20px;
+}

@@ -5,7 +5,7 @@
   align-items: center;
 
   margin: 0 0 30px;
-  background-color: #e1ac1c;
+  background-color: rgb(238, 159, 11);
   overflow: hidden;
 }
 
@@ -19,12 +19,88 @@
   color: #f2f2f2;
   padding-left: 10px;
   margin: 0;
+  font-family:monospace
 }
 
 .navLink {
   display: inline-block;
   color: #f2f2f2;
-  background-color: #c37c12;
+  background-color: #ddcb2a;
+  text-align: center;
+  padding: 24px 20px;
+  text-decoration: none;
+  font-size: 15px;
+
+  /* these last two make the logout button in
+  the nav bar look like another link */
+  border: none;
+  cursor: pointer;
+  outline: 0;
+}
+.navLinkHome {
+  display: inline-block;
+  color: #f2f2f2;
+  background-color: #069710;
+  text-align: center;
+  padding: 24px 20px;
+  text-decoration: none;
+  font-size: 15px;
+
+  /* these last two make the logout button in
+  the nav bar look like another link */
+  border: none;
+  cursor: pointer;
+  outline: 0;
+}
+.navLinkLogOut {
+  display: inline-block;
+  color: #f2f2f2;
+  background-color: #db4e2b;
+  text-align: center;
+  padding: 24px 20px;
+  text-decoration: none;
+  font-size: 15px;
+
+  /* these last two make the logout button in
+  the nav bar look like another link */
+  border: none;
+  cursor: pointer;
+  outline: 0;
+}
+.navLinkFuture {
+  display: inline-block;
+  color: #f2f2f2;
+  background-color: #3042e4;
+  text-align: center;
+  padding: 24px 20px;
+  text-decoration: none;
+  font-size: 15px;
+
+  /* these last two make the logout button in
+  the nav bar look like another link */
+  border: none;
+  cursor: pointer;
+  outline: 0;
+}
+.navLinkLoginRegister {
+  display: inline-block;
+  color: #f2f2f2;
+  background-color: #24bcf8;
+  text-align: center;
+  padding: 24px 20px;
+  text-decoration: none;
+  font-size: 15px;
+
+  /* these last two make the logout button in
+  the nav bar look like another link */
+  border: none;
+  cursor: pointer;
+  outline: 0;
+}
+.navLinkAbout{
+  display: inline-block;
+  color: #f2f2f2;
+  background-color: #ddcb2a;
   text-align: center;
   padding: 24px 20px;
   text-decoration: none;
@@ -38,5 +114,20 @@
 }
 
 .navLink:hover {
-  background-color: #008183;
+  background-color: #000000;
+}
+.navLinkFuture:hover {
+  background-color: #000000;
+}
+.navLinkLogOut:hover {
+  background-color: #000000;
+}
+.navLinkHome:hover {
+  background-color: #000000;
+}
+.navLinkLoginRegister:hover {
+  background-color: #000000;
+}
+.navLinkAbout:hover {
+  background-color: #000000;
 }

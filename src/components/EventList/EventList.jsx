@@ -29,7 +29,7 @@ function EventList() {
 
     return (
         <div className="container">
-            <p>Event List Page</p>
+            <h2 id='EventListTitle'>Event List Page</h2>
             {Events_Guests.map(combinedData => {
                 // Split the guest names into an array if it's a string
                 const guestNames = combinedData.guest_names ? combinedData.guest_names.split(', ') : [];
