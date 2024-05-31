@@ -1,0 +1,15 @@
+.formPanel {
+    background-color:rgb(90, 170, 239)
+}
+#RegisterTitle {
+    text-align: center;
+}
+#RegisterButtonRegister {
+    text-align: center;
+}
+#username_input {
+    text-align: center;
+}
+#password_input {
+    text-align: center;
+}
