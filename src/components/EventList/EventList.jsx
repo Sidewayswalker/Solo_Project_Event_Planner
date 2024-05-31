@@ -18,6 +18,12 @@ function EventList() {
         dispatch({ type: 'FETCH_EVENTS_GUESTS' });
     };
     //! DELETE FUNCTION
+
+    //! PUT
+    const editUsers = (editId) => {
+        dispatch({ type: 'EDIT_PLANT', payload: editId });
+      };
+    //! PUT
     
 
 
@@ -67,7 +73,7 @@ function EventList() {
                                     </td>
                                     <td>{combinedData.invite_UUID}</td>
                                     <td>
-                                        <button>Add Guest</button>
+                                        <button onClick={() => editUsers(combinedData.event_id)}>Add Guest</button>
                                     </td>
                                     <td>
                                     <button onClick={() => deleteEvent(combinedData.event_id)}>Delete Event<br />❌</button>

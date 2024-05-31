@@ -114,4 +114,37 @@ router.delete('/:id', (req, res) => {
       });
 });
 
+//! PUT
+router.put('/:id', (req, res) => {
+    const updatedPlant = req.body;
+  
+    const queryText = `
+      UPDATE "guest"
+        SET 
+          "event_id"=$1, 
+          "phone_number"=$2, 
+          "response"=$3, 
+          "invite_uuid"=$4, 
+        WHERE
+          id=$5;
+    `;
+  
+    const queryValues = [
+      updatedPlant.event_name,
+      updatedPlant.date,
+      updatedPlant.location,
+      updatedPlant.start_time,
+      updatedPlant.id,
+    ];
+  
+    pool.query(queryText, queryValues)
+      .then((result) => { res.sendStatus(200); })
+      .catch((err) => {
+        console.log('Error in PUT /api/event_guest/:id', err);
+        res.sendStatus(500);
+      });
+  });
+//! PUT
+
+
 module.exports = router;
