@@ -21,7 +21,7 @@ import LoginPage from '../LoginPage/LoginPage';
 import RegisterPage from '../RegisterPage/RegisterPage';
 import EventList from '../EventList/EventList';
 import NewEventForm from '../NewEventForm/NewEventForm'
-
+import Future from '../Future/Future.jsx';
 import './App.css';
 
 function App() {
@@ -114,6 +114,14 @@ function App() {
               // Otherwise, show the Landing page
               <LandingPage />
             }
+          </Route>
+
+          <Route
+            // shows AboutPage at all times (logged in or not)
+            exact
+            path="/future"
+          >
+            <Future />
           </Route>
 
           <ProtectedRoute
