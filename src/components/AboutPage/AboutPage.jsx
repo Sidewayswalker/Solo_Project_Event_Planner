@@ -32,6 +32,7 @@ function AboutPage() {
         <li>Enchance my skills with Javascript, HTML & CSS</li>
         <li>Communicate from Server to Client using SQL, React, Redux</li>
         <li>Utilize all the knowledge I've gained from Prime Digital Academy's Full Stack Program</li>
+        <li>Give myself an open concept project that I can continue to build on.</li>
        </p>
       </div>
     </div>

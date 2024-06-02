@@ -40,15 +40,16 @@ function EventList() {
                         <table>
                             <thead>
                                 <tr>
-                                    <th>Event</th>
-                                    <th>Date</th>
-                                    <th>Location</th>
-                                    <th>Start Time</th> 
-                                    <th>Guests</th>
-                                    <th>Responses</th>
-                                    <th>UUID</th>
-                                    <th>Add Guest</th>
-                                    <th>Remove Event</th>
+                                    <th><u>Event</u></th>
+                                    <th><u>Date</u></th>
+                                    <th><u>Location</u></th>
+                                    <th><u>Start Time</u></th> 
+                                    <th><u>Guests</u></th>
+                                    <th><u>Responses</u></th>
+                                    <th><u>UUID Link</u></th>
+                                    <th><u>Overview</u></th>
+                                    <th><u>Add Guest</u></th>
+                                    <th><u>Remove Event</u></th>
                                 </tr>
                             </thead>
                             <tbody>
@@ -72,6 +73,7 @@ function EventList() {
                                         </ul>
                                     </td>
                                     <td>{combinedData.invite_UUID}</td>
+                                    <td>LINK</td>
                                     <td>
                                         <button onClick={() => editUsers(combinedData.event_id)}>Add Guest</button>
                                     </td>
