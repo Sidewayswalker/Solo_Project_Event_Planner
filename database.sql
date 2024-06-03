@@ -30,9 +30,10 @@ CREATE TABLE "event" (
 INSERT INTO "event"
 ("user_id", "event_name", "date", "location", "start_time")
 VALUES
-('1', 'Volleyball', '2024-05-25', 'Bde Maka Ska', '08:00:00'),
-('1','Networking Event', '2024-09-05', 'Lobby Area', '17:30:00'),
-('2','Interview w/ NASA', '2024-08-10', 'Space Station Alpha', '10:00:00');
+('1', 'Build App', '2024-06-03', 'Home', '08:15:00'),
+('2', 'Volleyball', '2024-06-08', 'Bde Maka Ska', '08:00:00'),
+('2','Networking Event', '2024-11-05', 'Lobby Area', '17:30:00'),
+('2','Interview w/ NASA', '2024-09-10', 'Space Station Alpha', '10:00:00');
 
 
 -- GUEST DATA TABLE
@@ -47,7 +48,12 @@ CREATE TABLE "guest" (
 INSERT INTO "guest"
 ("event_id","guest_name","phone_number","response","invite_UUID")
 VALUES
-('1','Tom', '952-555-8899', TRUE, 'fdiopreqwrajklfdsa1321jkflads'),
-('1','Danny', '952-332-5482', TRUE, 'fdioprfqerqwdcvxzvcxznriods'),
-('1','Jared', '952-221-1132', FALSE, 'fdioprfqekjkljkljlks3243iods'),
-('1','Dalton', '952-667-8992', TRUE, 'fdioprfqerqwdcvxzvcxznriods');
+('1','Rachel', '612-555-6666', TRUE, 'fdioprfqerqwdcvxzvcxznriods'),
+('2','Tom', '952-555-8899', TRUE, 'fdiopreqwrajklfdsa1321jkflads'),
+('2','Danny', '952-332-5482', TRUE, 'fdioprfqerqwdcvxzvcxznriods'),
+('2','Jared', '952-221-1132', FALSE, 'fdioprfqekjkljkljlks3243iods'),
+('2','Dalton', '952-667-8992', TRUE, 'fdioprfqerqwdcvxzvcxznriods'),
+('3','Mark', '651-123-4567', TRUE, 'fdiopreqwrajklfdsa1321jkflads'),
+('3','Sophie', '651-987-6543', TRUE, 'fdioprfqerqwdcvxzvcxznriods'),
+('3','Jake', '612-333-4444', FALSE, 'fdioprfqekjkljkljlks3243iods'),
+('4','Jenny', '111-867-5309', TRUE, 'd6s7ds8v9x6bmnk6d6s55n');

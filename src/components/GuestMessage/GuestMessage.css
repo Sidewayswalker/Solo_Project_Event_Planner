@@ -1,0 +1,18 @@
+#Guest_Message_Table {
+    width: 300px; 
+    margin: 20px auto;
+    padding: 10px;
+    border: 2px solid black;
+  }
+#Yes_Guest_Response {
+    font-size: 24px;
+    padding: 15px 32px;
+    margin: 20px;
+    background-color: rgb(156, 246, 22);
+}
+#No_Guest_Response {
+    font-size: 24px;
+    padding: 15px 32px;
+    margin: 20px;
+    background-color: rgb(224, 50, 37);
+}

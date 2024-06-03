@@ -1,3 +1,16 @@
 .containerAboutPage {
     text-align: center;
+    background-image: url();
+}
+#Tech_List_Box {
+    width: 220px; 
+    margin: 20px auto;
+    padding: 10px;
+    border: 2px solid black;
+}
+#Challenge_List_Box {
+    width: 220px; 
+    margin: 20px auto;
+    padding: 10px;
+    border: 2px solid black;
 }

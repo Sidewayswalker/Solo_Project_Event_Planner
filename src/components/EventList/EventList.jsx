@@ -72,8 +72,10 @@ function EventList() {
                                             ))}
                                         </ul>
                                     </td>
-                                    <td>{combinedData.invite_UUID}</td>
-                                    <td>LINK</td>
+                                    <td>{combinedData.invite_UUID} <a href="http://localhost:5173/URL#/guest_message">Guest URL</a></td>
+                                    <td>
+                                        <a href="http://localhost:5173/URL#/event_guest_overview">Master Link</a>
+                                    </td>
                                     <td>
                                         <button onClick={() => editUsers(combinedData.event_id)}>Add Guest</button>
                                     </td>

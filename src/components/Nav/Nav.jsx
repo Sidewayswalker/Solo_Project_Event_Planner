@@ -36,12 +36,12 @@ function Nav() {
           </>
         )}
 
-        {user.id && (
+        {/* {user.id && (
           // If there's no user, show login/registration links
           <Link className="navLinkFuture" to="/future">
             Future Upgrades
           </Link>
-        )}
+        )} */}
 
         <Link className="navLinkAbout" to="/about">
           About

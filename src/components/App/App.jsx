@@ -22,7 +22,9 @@ import RegisterPage from '../RegisterPage/RegisterPage';
 import EventList from '../EventList/EventList';
 import NewEventForm from '../NewEventForm/NewEventForm'
 import Future from '../Future/Future.jsx';
+import EventGuestOverview from '../EventGuestOverview/EventGuestOverview.jsx';
 import './App.css';
+import GuestMessage from '../GuestMessage/GuestMessage.jsx';
 
 function App() {
   const dispatch = useDispatch();
@@ -139,6 +141,23 @@ function App() {
             path="/new_event_form"
           >
             <NewEventForm />
+          </ProtectedRoute>
+
+
+          <ProtectedRoute
+            // logged in shows InfoPage else shows LoginPage
+            exact
+            path="/guest_message"
+          >
+            <GuestMessage />
+          </ProtectedRoute>
+
+          <ProtectedRoute
+            // logged in shows InfoPage else shows LoginPage
+            exact
+            path="/event_guest_overview"
+          >
+            <EventGuestOverview />
           </ProtectedRoute>
 
 
