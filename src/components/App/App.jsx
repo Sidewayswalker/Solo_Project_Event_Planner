@@ -25,6 +25,7 @@ import Future from '../Future/Future.jsx';
 import EventGuestOverview from '../EventGuestOverview/EventGuestOverview.jsx';
 import './App.css';
 import GuestMessage from '../GuestMessage/GuestMessage.jsx';
+import AddGuestForm from '../AddGuestForm/AddGuestForm.jsx';
 
 function App() {
   const dispatch = useDispatch();
@@ -143,11 +144,19 @@ function App() {
             <NewEventForm />
           </ProtectedRoute>
 
+          <ProtectedRoute
+            // logged in shows InfoPage else shows LoginPage
+            exact
+            path="/add_guest_form"
+          >
+            <AddGuestForm />
+          </ProtectedRoute>
+
 
           <ProtectedRoute
             // logged in shows InfoPage else shows LoginPage
             exact
-            path="/guest_message"
+            path="/guest_message/fdiopreqwrajklfdsa1321jkflads"
           >
             <GuestMessage />
           </ProtectedRoute>

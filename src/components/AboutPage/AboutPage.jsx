@@ -47,6 +47,9 @@ function AboutPage() {
             </ol>
           </div> */}
         </div>
+        <div>
+          <img id="QR_CODE" src="QR_CODE.jpeg"></img>
+        </div>
       </div>
     </div>
   );

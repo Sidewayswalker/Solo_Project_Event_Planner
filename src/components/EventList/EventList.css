@@ -1,8 +1,8 @@
 .Event_List_Table {
     border: 2px solid #000;
     padding: 8px;
-    margin: 10px;
-    text-align: left; 
+    margin: 15px;
+    text-align: center;
 }
 
 #invisible_bulletpoint_list {
@@ -11,3 +11,8 @@
 #EventListTitle {
     text-align: center;
 }
+.Tables_Heads th {
+    text-align: left;
+    padding: 10px; /* Adjust padding as needed */
+    background-color: #f2f2f2; /* Optional: Background color for table headers */
+  }

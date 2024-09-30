@@ -25,6 +25,7 @@ function NewEventForm() {
     setGuestInputs([...guestInputs, { guestName: '', phoneNumber: '' }]);
   };
 
+  // This is a Submit for the entire "New Event Form"
   const handleSubmit = (event) => {
     event.preventDefault();
     const newEventPayload = {
@@ -34,7 +35,7 @@ function NewEventForm() {
       start_time: timeInput,
       guests: guestInputs
     };
-    console.log('SEEEEE HERE',newEventPayload)
+    console.log('New_Event_Payload',newEventPayload)
     dispatch({
       type: 'ADD_EVENT',
       payload: newEventPayload

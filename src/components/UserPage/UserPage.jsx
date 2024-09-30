@@ -16,7 +16,7 @@ function UserPage() {
   }
 
   const handleEventListClick = () => {
-    history.push(`/event_list`);
+    history.push(`/event_list/`);
   }
 
 

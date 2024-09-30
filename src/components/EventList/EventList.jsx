@@ -1,9 +1,12 @@
-import React, { useEffect } from 'react';
+import React, { useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
+import { useHistory } from 'react-router-dom';
 import './EventList.css';
+
 
 function EventList() {
     const dispatch = useDispatch();
+    const history = useHistory();
     const Events_Guests = useSelector(store => store.eventGuest);
 
     useEffect(() => {
@@ -21,9 +24,18 @@ function EventList() {
 
     //! PUT
     const editUsers = (editId) => {
-        dispatch({ type: 'EDIT_PLANT', payload: editId });
-      };
+        // Navigate to the form page (ensure the path is correct)
+        history.push(`/add_guest_form`);
+        
+        // Dispatch the action with the correct type and payload
+        dispatch({ 
+          type: 'EDIT_USER', // Ensure the action type matches what your reducer expects
+          payload: editId
+        });
+    };
+    
     //! PUT
+
     
 
 
@@ -38,7 +50,7 @@ function EventList() {
                 return (
                     <div key={combinedData.event_id} className='Event_List_Table'>
                         <table>
-                            <thead>
+                            <thead className='Tables_Heads'>
                                 <tr>
                                     <th><u>Event</u></th>
                                     <th><u>Date</u></th>
@@ -52,7 +64,7 @@ function EventList() {
                                     <th><u>Remove Event</u></th>
                                 </tr>
                             </thead>
-                            <tbody>
+                            <tbody className='Tables_Heads'>
                                 <tr>
                                     <td>{combinedData.event_name}</td>
                                     <td>{combinedData.date}</td>
@@ -72,7 +84,7 @@ function EventList() {
                                             ))}
                                         </ul>
                                     </td>
-                                    <td>{combinedData.invite_UUID} <a href="http://localhost:5173/URL#/guest_message">Guest URL</a></td>
+                                    <td>{combinedData.invite_UUID} <a href="http://localhost:5173/URL#/guest_message/fdiopreqwrajklfdsa1321jkflads">Guest URL</a></td>
                                     <td>
                                         <a href="http://localhost:5173/URL#/event_guest_overview">Master Link</a>
                                     </td>

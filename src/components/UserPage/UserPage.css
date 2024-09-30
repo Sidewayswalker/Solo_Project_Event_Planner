@@ -20,4 +20,8 @@
 }
 #EventListButton:hover {
     background-color: white;
-  }
+}
+#QR_CODE{
+    width: 500px;
+    length: 600px;
+}
